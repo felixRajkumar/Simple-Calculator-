@@ -21,6 +21,22 @@ app.post('/', (req, resp) => {
 });
 
 
+app.get('/bmicalculator', (req, resp) => {
+    resp.sendFile(__dirname+"/bmiCalculator.html");
+});
+
+
+app.post('/bmicalculator', (req, resp) => {
+    var w = Number(req.body.num1);
+
+    var h = Number(req.body.num2);
+
+    var result = w /(h * h);
+
+    resp.send("The BMI is "+ result);
+});
+
+
 app.listen(3000, () => {
     console.log('Listening on port ' + port);
 });
